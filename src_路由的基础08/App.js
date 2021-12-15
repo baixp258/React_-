@@ -1,11 +1,8 @@
 
 import React, { Component } from 'react';
-import {NavLink,BrowserRouter,Route,Routes,Redirect} from 'react-router-dom'
-import Home from './pages/Home/index'
-import About from './pages/About/index'
-import Header from './component/Header'
-import MyNavLink from './component/Common'
-
+import {Link,BrowserRouter,Route,Routes} from 'react-router-dom'
+import Home from './component/Home/index'
+import About from './component/About/index'
 
 export default class App extends Component {
 
@@ -13,16 +10,15 @@ export default class App extends Component {
   
 
   render() {
-    
     return (
       <div id="root">
         <div>
           <div className="row">
             <div className="col-xs-offset-2 col-xs-8">
-              <Header/>
+              <div className="page-header"><h2>React Router Demo</h2></div>
             </div>
           </div>
-       
+          <BrowserRouter>
           <div className="row">
             <div className="col-xs-2 col-xs-offset-2">
               <div className="list-group">
@@ -30,8 +26,8 @@ export default class App extends Component {
                   <a className="list-group-item" href="./about.html">About</a>
                    <a className="list-group-item active" href="./home.html">Home</a>
                 */}
-                    <MyNavLink  to='/home'>Home</MyNavLink>
-                    <MyNavLink  to='/about'>About</MyNavLink>   
+                    <Link className="list-group-item" to='/home'>Home</Link>
+                    <Link className="list-group-item" to='/about'>About</Link>
               </div>
             </div>
             <div className="col-xs-6">
@@ -41,17 +37,13 @@ export default class App extends Component {
                     <Routes>
                       <Route path="/home" element={<Home/>}/>
                       <Route path="/about" element={<About/>}/>
-                     
-
-                    </Routes>
-                  {/*
-                       新版路由不支持<Redirect to="/home"/>，旧版支持，使用时当前面路由都匹配失败时匹配Redirect
-                  */}
+                      </Routes>
+                  
                 </div>
               </div>
             </div>
           </div>
-       
+         </BrowserRouter>
         </div>
       </div>
     )

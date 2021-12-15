@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import {NavLink,BrowserRouter,Route,Routes,Redirect} from 'react-router-dom'
+import {NavLink,BrowserRouter,Route,Routes} from 'react-router-dom'
 import Home from './pages/Home/index'
 import About from './pages/About/index'
 import Header from './component/Header'
@@ -41,11 +41,12 @@ export default class App extends Component {
                     <Routes>
                       <Route path="/home" element={<Home/>}/>
                       <Route path="/about" element={<About/>}/>
-                     
-
                     </Routes>
                   {/*
-                       新版路由不支持<Redirect to="/home"/>，旧版支持，使用时当前面路由都匹配失败时匹配Redirect
+                      1.路由默认是开启模糊匹配，匹配顺序根据Router标签中path路径跟Link标签中的to进行匹配，第一个匹配到返回。
+                      2.如果在Router中执行严格匹配，添加exact={true} 即可  <Route exact={true} path="/about" element={<About/>}/>
+                      3.引入的样式在public目录下index.html中不做用<link rel="stylesheet" href="./css/bootstrap.css"> 改成<link rel="stylesheet" href="/css/bootstrap.css">
+                        或者是<link rel="stylesheet" href="%PUBLIC_URL%/css/bootstrap.css">或者用hashRoute
                   */}
                 </div>
               </div>
