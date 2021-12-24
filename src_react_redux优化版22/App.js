@@ -1,23 +1,21 @@
 
 import React, { Component } from 'react';
-import Ccontainer from './comtainers/Count/CountContainer'
-import Persion from './comtainers/Persion/persion'
-
+import Ccontainer from './comtainers/CountContainer'
 import './App.less';
+import store from './redux/store/store'
 
 
 
 export default class App extends Component {
 
   render() {
+  
     return (
       <div>
-        {/*
-          容器组件
+        {/* 给容器组件传递store 
+           <Ccontainer store={store}/>
         */}
          <Ccontainer/>
-         <hr/>
-         <Persion/>
       </div>
     
     )
